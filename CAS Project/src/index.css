@@ -1,0 +1,60 @@
+/* Import Leaflet default styles first (required before all other rules) */
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+@import "tailwindcss";
+
+/* Global theme variables for a fresh, modern UI */
+:root{
+    --tt-bg: #0b1220;
+    --tt-surface: #0f1724;
+    --tt-accent: #06b6d4;
+    --tt-accent-2: #10b981;
+    --tt-muted: #94a3b8;
+}
+
+html,body,#root{
+    height:100%;
+    background: linear-gradient(180deg, var(--tt-bg), #071029 70%);
+}
+
+/* Leaflet map container fix */
+.leaflet-container {
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+}
+
+/* Ensure Leaflet tiles load properly */
+.leaflet-tile-container {
+        pointer-events: auto;
+}
+
+/* Tweak Leaflet control colors for dark theme */
+.leaflet-control-zoom a,
+.leaflet-bar a {
+        background-color: rgba(255, 255, 255, 0.06) !important;
+        color: #e6eef6 !important;
+        border: 1px solid rgba(255,255,255,0.04) !important;
+}
+
+/* Card overrides to help create a new look */
+.tt-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 14px;
+}
+
+.tt-hero {
+    background: linear-gradient(90deg, rgba(6,182,212,0.06), rgba(16,185,129,0.04));
+}
+
+.tt-btn {
+    background: linear-gradient(90deg, var(--tt-accent), var(--tt-accent-2));
+    color: #031022;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 0.5rem 0.9rem;
+}
+
+.map-dark-overlay .leaflet-tile {
+    filter: contrast(0.9) saturate(0.8) brightness(0.95) hue-rotate(10deg);
+}
